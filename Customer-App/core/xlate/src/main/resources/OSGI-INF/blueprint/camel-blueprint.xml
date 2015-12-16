@@ -24,22 +24,11 @@
         <property name="connectionFactory" ref="activemqConnectionFactory" />
     </bean>
     
+    <bean id="xlateRouteBuilder" class="com.customer.app.XlateRouteBuilder"/>
+    
 	<camelContext id="xlate-camel-ctx" trace="false"
 		xmlns="http://camel.apache.org/schema/blueprint" useMDCLogging="true">		
-		<route>
-			<from uri="{{xlate-amq-inbound}}" />
-			<to uri="log:com.customer.app?level=DEBUG"/>
-			<unmarshal>
-				<jaxb prettyPrint="false" contextPath="com.customer.app"
-                partClass="com.customer.app.Person" />
-			</unmarshal>
-			<convertBodyTo type="com.customer.app.Person"/>
-		    <marshal>
-				<jaxb prettyPrint="false" contextPath="com.customer.app"
-                partClass="com.customer.app.Person" />
-			</marshal>
-			<to uri="{{xlate-amq-outbound}}" pattern="InOnly"/>
-		</route>
+		<routeBuilder ref="xlateRouteBuilder"/>    
 	</camelContext>
 
 </blueprint>
