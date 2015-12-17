@@ -1,0 +1,13 @@
+<ns2:executeMatchUpdate xmlns:ns2="http://webservice.index.mdm.sun.com/">
+    <callerInfo>
+        <application>foo</application>
+        <applicationFunction>bar</applicationFunction>
+        <authPassword>admin</authPassword>
+        <executionCycleId>1</executionCycleId>
+        <system>abcdefg</system>
+        <user>Fuller</user>
+    </callerInfo>
+    <sysObjBean>
+        <updateUser>Fuller</updateUser>
+    </sysObjBean>
+</ns2:executeMatchUpdate>

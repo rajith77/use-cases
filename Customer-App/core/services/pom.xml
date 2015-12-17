@@ -19,6 +19,5 @@
 
   <modules>
     <module>integration-test-server</module>
-  </modules>
-  
+  </modules>  
 </project>

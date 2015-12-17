@@ -23,7 +23,7 @@ public class XlateRouteBuilder extends RouteBuilder {
 		.log("Got from Queue ${body}")
 		.unmarshal(inFormat)
 		.convertBodyTo(ExecuteMatchUpdate.class)
-	    //.marshal(outFormat)
+	    .marshal(outFormat)
 	    .log("After converting and marshalling ${body}")
 	    .to(ExchangePattern.InOnly,"{{xlate-amq-outbound}}");
 	}
